@@ -1,11 +1,11 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-note-creator',
   templateUrl: './note-creator.component.html',
   styleUrls: ['./note-creator.component.scss']
 })
-export class NoteCreatorComponent implements OnInit {
+export class NoteCreatorComponent {
   modalRef: BsModalRef;
   fullForm: boolean = false;
   @Output() createNote = new EventEmitter();
@@ -18,7 +18,7 @@ export class NoteCreatorComponent implements OnInit {
   onCreateNote() {
     const { title, value, color } = this.newNote; // this is es6 syntax
     if (title && value) {
-      this.createNote.next({ title, value, color });
+      this.createNote.emit({ title, value, color });
     }
 
     this.reset();
@@ -35,9 +35,7 @@ export class NoteCreatorComponent implements OnInit {
 
   constructor(private modalService: BsModalService) { }
 
-  openModal(template: Template<any>) {
+  openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
-  }
-  ngOnInit() {
   }
 }

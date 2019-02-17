@@ -1,5 +1,7 @@
+import { NoteEditorComponent } from './main-container/notes-container/note-editor/note-editor.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,12 +20,15 @@ import { NoteCreatorComponent } from './main-container/notes-container/note-crea
     MainContainerComponent,
     NotesContainerComponent,
     NoteCardComponent,
-    NoteCreatorComponent
+    NoteCreatorComponent,
+    NoteEditorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     FormsModule,
+    CommonModule,
     ModalModule.forRoot(),
     TooltipModule.forRoot()
   ],

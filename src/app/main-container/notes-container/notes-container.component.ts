@@ -5,12 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './notes-container.component.html',
   styleUrls: ['./notes-container.component.scss']
 })
-export class NotesContainerComponent implements OnInit {
-
+export class NotesContainerComponent {
   notes = [
-    {title: 'one', value: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', color: 'white'},
-    {title: 'two', value: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', color: 'white'},
-    {title: 'three', value: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', color: 'white'}
+    {id: 1, title: 'one', value: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', color: 'white'},
+    {id: 2, title: 'two', value: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', color: 'white'},
+    {id: 3, title: 'three', value: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', color: 'white'}
   ];
 
   onNoteChecked(note, i) {
@@ -20,9 +19,8 @@ export class NotesContainerComponent implements OnInit {
   onCreateNote(note) {
     this.notes.push(note);
   }
-  constructor() { }
 
-  ngOnInit() {
+  onEditNote(editedNote) {
+    this.notes.splice(this.notes.findIndex((note => note.id === editedNote.id)), 1, editedNote);
   }
-
 }

@@ -1,0 +1,29 @@
+<div *ngIf="isOpen" bsModal #staticModal="bs-modal" [config]="{show: true}">
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Edit Note</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12" [ngStyle]="{'background-color': note.color}">
+                <form (submit)="onEditNote()">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input class="form-control" type="text" [(ngModel)]="note.title" name="noteTitle" placeholder="Create sticky Note" />
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" [(ngModel)]="note.value" name="noteValue" placeholder="sticky Header"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12 text-right">
+                            <button type="submit" class="btn btn-primary" (click)="modalRef.hide()">Update Note</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
