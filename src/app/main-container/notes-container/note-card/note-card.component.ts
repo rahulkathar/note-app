@@ -26,13 +26,8 @@ export class NoteCardComponent implements OnInit {
   }
 
   onEditNote() {
-    debugger;
     this.edit.next(this.note);
   }
-
-  // openModal(template: Template<any>) {
-  //   this.modalRef = this.modalService.show(template);
-  // }
 
   ngOnInit() {
   }
