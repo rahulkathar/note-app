@@ -2,7 +2,7 @@
     <app-note-creator (createNote)="onCreateNote($event)"></app-note-creator>
     <div class="row">
         <div class="col-md-4 mt-4" *ngFor="let note of notes; let i=index">
-            <app-note-card [note]='note' (checked)="onNoteChecked($event, i)"></app-note-card>
+            <app-note-card [note]='note' (checked)="onNoteChecked($event, i)" (edit)="onEditClick($event,i)"></app-note-card>
         </div>
     </div>
 </div>
