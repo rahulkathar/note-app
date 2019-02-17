@@ -1,0 +1,14 @@
+<div class="card" [ngStyle]="{'background-color': note.color}" (mouseenter)="toggleCheck()" (mouseleave)="toggleCheck()">
+    <h5 class="card-header"> {{note.title}}
+        <span class="remove-icon" *ngIf="showCheck" (click)="onChecked()" tooltip="Remove sticky note" title="">
+            <i>&#10004;</i>
+        </span>
+        <span class="edit-icon" *ngIf="showCheck" (click)="onEditNote()" tooltip="Edit Note" title="">
+                <i>&#9998;</i>
+            </span>
+    </h5>
+    <div class="card-body">
+        <p class="card-text">{{note.value}}</p>
+        <a href="#" class="btn float-right">{{ today | date:'medium' }} </a>
+    </div>
+</div>

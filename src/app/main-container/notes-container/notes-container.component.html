@@ -1,10 +1,8 @@
-<p>
-    notes-container works!
-</p>
-<div class="row center-xs notes">
-    <div class="notes col-xs-8">
-        <div class="row between-xs">
-            <app-note-card class="col-xs-4"></app-note-card>
+<div class="container">
+    <app-note-creator (createNote)="onCreateNote($event)"></app-note-creator>
+    <div class="row">
+        <div class="col-md-4 mt-4" *ngFor="let note of notes; let i=index">
+            <app-note-card [note]='note' (checked)="onNoteChecked($event, i)"></app-note-card>
         </div>
     </div>
 </div>
